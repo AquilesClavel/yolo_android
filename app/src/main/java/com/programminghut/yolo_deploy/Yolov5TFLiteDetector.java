@@ -47,7 +47,7 @@ import android.graphics.RectF;
 public class Yolov5TFLiteDetector {
 
     private final Size INPNUT_SIZE = new Size(320, 320);
-    private final int[] OUTPUT_SIZE = new int[]{1, 6300, 85};
+    private final int[] OUTPUT_SIZE = new int[]{1, 2100, 8};
     private Boolean IS_INT8 = false;
     private final float DETECT_THRESHOLD = 0.25f;
     private final float IOU_THRESHOLD = 0.45f;
@@ -71,6 +71,7 @@ public class Yolov5TFLiteDetector {
 
     public void setModelFile(String modelFile){
         MODEL_FILE = modelFile;
+        System.out.println("OUTPUT: "+OUTPUT_SIZE[1]);
 
         Log.d(">>> ", "MODEL NAME SET --- "+ MODEL_FILE + ", "+modelFile);
     }
@@ -213,7 +214,9 @@ public class Yolov5TFLiteDetector {
         // 更新label信息
         for(Recognition recognition : nmsFilterBoxDuplicationRecognitions){
             int labelId = recognition.getLabelId();
+            System.out.println("LID"+labelId);
             String labelName = associatedAxisLabels.get(labelId);
+            System.out.println("LNA: "+labelName);
             recognition.setLabelName(labelName);
         }
 

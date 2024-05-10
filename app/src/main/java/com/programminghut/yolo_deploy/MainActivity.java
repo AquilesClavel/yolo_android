@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Canvas canvas = new Canvas(mutableBitmap);
 
         for(Recognition recognition: recognitions){
-            if(recognition.getConfidence() > 0.4){
+            if(recognition.getConfidence() > 0.6){
                 RectF location = recognition.getLocation();
                 canvas.drawRect(location, boxPaint);
                 canvas.drawText(recognition.getLabelName() + ":" + recognition.getConfidence(), location.left, location.top, textPain);
