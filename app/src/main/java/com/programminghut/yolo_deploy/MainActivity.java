@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
 
         yolov5TFLiteDetector = new Yolov5TFLiteDetector();
-        yolov5TFLiteDetector.setModelFile("yolov5s-fp16.tflite");
+        yolov5TFLiteDetector.setModelFile("yolobest-fp16.tflite");
         yolov5TFLiteDetector.initialModel(this);
 
         boxPaint.setStrokeWidth(5);
